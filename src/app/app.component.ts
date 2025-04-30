@@ -15,13 +15,14 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   title = 'chatgpt-poc';
   userInput = '';
+  userContext = '';
   response = '';
 
   constructor(private http: HttpClient) {}
 
   sendMessage() {
     this.http.post<any>('https://astrobackend-production-a7c8.up.railway.app/api/chat', 
-      { message: this.userInput },
+      { message: this.userInput, context: this.userContext },
       { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
     )
       .subscribe(res => {

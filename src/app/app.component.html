@@ -1,7 +1,10 @@
 <div style="padding: 1rem;">
   <h2>ChatGPT POC</h2>
   <form (ngSubmit)="sendMessage()">
-    <input [(ngModel)]="userInput" name="userInput" placeholder="Say something..." required />
+    
+    <p><input [(ngModel)]="userContext" name="userContext" placeholder="userContext" required /></p>
+    
+    <p><input [(ngModel)]="userInput" name="userInput" placeholder="Say something..." required /></p>
     <button type="submit">Send</button>
   </form>
   <p><strong>Response:</strong> {{ response }}</p>
