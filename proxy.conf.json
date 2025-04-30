@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://astrobackend-production-a7c8.up.railway.app",
+      "target": "http://astrobackend-production-a7c8.up.railway.app:8080",
       "secure": false
     }
 }
