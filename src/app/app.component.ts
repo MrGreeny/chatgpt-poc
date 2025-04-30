@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -20,7 +20,10 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
 
   sendMessage() {
-    this.http.post<any>('/api/chat', { message: this.userInput })
+    this.http.post<any>('https://astrobackend-production-a7c8.up.railway.app/api/chat', 
+      { message: this.userInput },
+      { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+    )
       .subscribe(res => {
         this.response = res.choices[0].message.content;
       });
